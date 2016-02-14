@@ -371,12 +371,12 @@ module.exports = function (grunt) {
     ngtemplates: {
       dist: {
         options: {
-          module: 'myAppApp',
+          module: 'myApp',
           htmlmin: '<%= htmlmin.dist.options %>',
           usemin: 'scripts/scripts.js'
         },
         cwd: '<%= yeoman.app %>',
-        src: 'views/{,*/}*.html',
+        src: 'partials/{,*/}*.html',
         dest: '.tmp/templateCache.js'
       }
     },
