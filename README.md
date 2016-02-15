@@ -1,4 +1,4 @@
-# ng-skeleton (Angular app)
+# ng-skeleton (Angular app) 
 
 This project is an application skeleton for an AngularJS web app.  
 
