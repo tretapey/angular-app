@@ -11,7 +11,7 @@ Features:
 
 ## Install
 
-Clone this repo `git clone https://github.com/tretapey/angular-app`  
+Clone this repo `git clone https://github.com/tretapey/ng-skeleton`  
 `cd angular-app`  
 `bower install`   
 `npm install`
