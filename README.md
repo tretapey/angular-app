@@ -12,7 +12,7 @@ Features:
 ## Install
 
 Clone this repo `git clone https://github.com/tretapey/ng-skeleton`  
-`cd angular-app`  
+`cd ng-skeleton`  
 `bower install`   
 `npm install`
 
