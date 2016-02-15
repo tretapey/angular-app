@@ -17,7 +17,7 @@ describe('Controller: HomeCtrl', function () {
     });
   }));
 
-  it('should attach a list of awesomeThings to the scope', function () {
+  it('controller should be an object', function () {
     expect(HomeCtrl).toEqual(jasmine.any(Object));
   });
 });

@@ -1,9 +1,10 @@
-# my-app (Angular app)
+# ng-skeleton (Angular app)
 
-This project is an application skeleton for a typical AngularJS web app.  
+This project is an application skeleton for an AngularJS web app.  
 
 Features:
 
+* Grunt task runner.
 * ui-router instead of ng-route.
 * Bootstrap with sass.
 * karma for unit tests.
