@@ -38,7 +38,7 @@ module.exports = function (grunt) {
       },
       js: {
         files: ['<%= yeoman.app %>/{,*/}/{,*/}*.js'],
-        tasks: ['newer:jshint:all', 'newer:jscs:all'],
+        tasks: ['newer:jshint:all', 'newer:jscs:all', 'injector:scripts'],
         options: {
           livereload: '<%= connect.options.livereload %>'
         }
@@ -455,6 +455,34 @@ module.exports = function (grunt) {
         configFile: 'test/karma.conf.js',
         singleRun: true
       }
+    },
+
+    injector: {
+      options: {},
+      // Inject application script files into index.html (doesn't include bower)
+      scripts: {
+        options: {
+          transform: function(filePath) {
+            filePath = filePath.replace('/app/', '');
+            filePath = filePath.replace('/.tmp/', '');
+            return '<script src="' + filePath + '"></script>';
+          },
+          starttag: '<!-- injector:js -->',
+          endtag: '<!-- endinjector -->'
+        },
+        files: {
+          '<%= yeoman.app %>/index.html': [
+               [
+                 // One level folders (/*.js)
+                 '{.tmp,<%= yeoman.app %>}/core/*.js',
+                 '{.tmp,<%= yeoman.app %>}/services/*.js',
+                 // Multi level folders (/**/*.js)
+                 '{.tmp,<%= yeoman.app %>}/directives/**/*.js',
+                 '{.tmp,<%= yeoman.app %>}/partials/**/*.js'
+               ]
+            ]
+        }
+      }
     }
   });
 
@@ -468,6 +496,7 @@ module.exports = function (grunt) {
       'clean:server',
       'wiredep',
       'concurrent:server',
+      'injector:scripts',
       'postcss:server',
       'connect:livereload',
       'watch'
