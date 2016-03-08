@@ -475,7 +475,7 @@ module.exports = function (grunt) {
                [
                  // One level folders (/*.js)
                  '{.tmp,<%= yeoman.app %>}/core/*.js',
-                 '{.tmp,<%= yeoman.app %>}/services/*.js',
+                 '{.tmp,<%= yeoman.app %>}/services/**/*.js',
                  // Multi level folders (/**/*.js)
                  '{.tmp,<%= yeoman.app %>}/directives/**/*.js',
                  '{.tmp,<%= yeoman.app %>}/partials/**/*.js'
