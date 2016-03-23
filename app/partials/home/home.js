@@ -20,7 +20,7 @@
         .config(function ($stateProvider) {
             $stateProvider
                 .state('app.home', {
-                    url: '/home',
+                    url: '/',
                     data: { pageDescription: 'Home' },
                     views: {
                         '@': {
