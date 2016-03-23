@@ -1,9 +1,7 @@
 (function() {
     'use strict';
 
-    function Controller($scope) {
-        this.$scope = $scope;
-
+    function Controller() {
         this.init();
     }
 
@@ -11,9 +9,7 @@
         init: function() {
             var vm = this;
 
-            vm.$scope.title = 'Example';
-            
-        
+            vm.title = 'Example';
         }
     };
 
@@ -29,7 +25,8 @@
                     views: {
                         '@': {
                             templateUrl: 'partials/example/example.html',
-                            controller: 'ExampleCtrl'
+                            controller: 'ExampleCtrl',
+                            controllerAs: 'example'
                         }
                     }
                 });
