@@ -7,6 +7,7 @@ Features:
 * Grunt task runner.
 * ui-router instead of ng-route.
 * Bootstrap with sass.
+* Angular Bootstrap UI.
 * Font Awesome.
 * karma for unit tests.
 
