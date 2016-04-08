@@ -28,7 +28,7 @@ module.exports = function (grunt) {
   grunt.initConfig({
 
     // Project settings
-    yeoman: appConfig,
+    skeleton: appConfig,
 
     // Watches files for changes and runs tasks based on the changed files
     watch: {
@@ -37,7 +37,7 @@ module.exports = function (grunt) {
         tasks: ['wiredep']
       },
       js: {
-        files: ['<%= yeoman.app %>/{,*/}/{,*/}*.js'],
+        files: ['<%= skeleton.app %>/{,*/}/{,*/}*.js'],
         tasks: ['newer:jshint:all', 'newer:jscs:all', 'injector:scripts'],
         options: {
           livereload: '<%= connect.options.livereload %>'
@@ -48,7 +48,7 @@ module.exports = function (grunt) {
         tasks: ['newer:jshint:test', 'newer:jscs:test', 'karma']
       },
       compass: {
-        files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
+        files: ['<%= skeleton.app %>/styles/{,*/}*.{scss,sass}'],
         tasks: ['compass:server', 'postcss:server']
       },
       gruntfile: {
@@ -59,9 +59,9 @@ module.exports = function (grunt) {
           livereload: '<%= connect.options.livereload %>'
         },
         files: [
-          '<%= yeoman.app %>/{,*/}*.html',
+          '<%= skeleton.app %>/{,*/}*.html',
           '.tmp/styles/{,*/}*.css',
-          '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
+          '<%= skeleton.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
       }
     },
@@ -112,7 +112,7 @@ module.exports = function (grunt) {
       dist: {
         options: {
           open: true,
-          base: '<%= yeoman.dist %>'
+          base: '<%= skeleton.dist %>'
         }
       }
     },
@@ -126,7 +126,7 @@ module.exports = function (grunt) {
       all: {
         src: [
           'Gruntfile.js',
-          '<%= yeoman.app %>/scripts/{,*/}*.js'
+          '<%= skeleton.app %>/scripts/{,*/}*.js'
         ]
       },
       test: {
@@ -146,7 +146,7 @@ module.exports = function (grunt) {
       all: {
         src: [
           'Gruntfile.js',
-          '<%= yeoman.app %>/{,*/}*.js'
+          '<%= skeleton.app %>/{,*/}*.js'
         ]
       },
       test: {
@@ -161,8 +161,8 @@ module.exports = function (grunt) {
           dot: true,
           src: [
             '.tmp',
-            '<%= yeoman.dist %>/{,*/}*',
-            '!<%= yeoman.dist %>/.git{,*/}*'
+            '<%= skeleton.dist %>/{,*/}*',
+            '!<%= skeleton.dist %>/.git{,*/}*'
           ]
         }]
       },
@@ -200,7 +200,7 @@ module.exports = function (grunt) {
     // Automatically inject Bower components into the app
     wiredep: {
       app: {
-        src: ['<%= yeoman.app %>/index.html'],
+        src: ['<%= skeleton.app %>/index.html'],
         ignorePath:  /\.\.\//
       },
       test: {
@@ -220,7 +220,7 @@ module.exports = function (grunt) {
           }
       },
       sass: {
-        src: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
+        src: ['<%= skeleton.app %>/styles/{,*/}*.{scss,sass}'],
         ignorePath: /(\.\.\/){1,2}bower_components\//
       }
     }, 
@@ -228,12 +228,12 @@ module.exports = function (grunt) {
     // Compiles Sass to CSS and generates necessary files if requested
     compass: {
       options: {
-        sassDir: '<%= yeoman.app %>/styles',
+        sassDir: '<%= skeleton.app %>/styles',
         cssDir: '.tmp/styles',
         generatedImagesDir: '.tmp/images/generated',
-        imagesDir: '<%= yeoman.app %>/images',
-        javascriptsDir: '<%= yeoman.app %>/scripts',
-        fontsDir: '<%= yeoman.app %>/styles/fonts',
+        imagesDir: '<%= skeleton.app %>/images',
+        javascriptsDir: '<%= skeleton.app %>/scripts',
+        fontsDir: '<%= skeleton.app %>/styles/fonts',
         importPath: './bower_components',
         httpImagesPath: '/images',
         httpGeneratedImagesPath: '/images/generated',
@@ -244,7 +244,7 @@ module.exports = function (grunt) {
       },
       dist: {
         options: {
-          generatedImagesDir: '<%= yeoman.dist %>/images/generated'
+          generatedImagesDir: '<%= skeleton.dist %>/images/generated'
         }
       },
       server: {
@@ -258,10 +258,10 @@ module.exports = function (grunt) {
     filerev: {
       dist: {
         src: [
-          '<%= yeoman.dist %>/scripts/{,*/}*.js',
-          '<%= yeoman.dist %>/styles/{,*/}*.css',
-          '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
-          '<%= yeoman.dist %>/styles/fonts/*'
+          '<%= skeleton.dist %>/scripts/{,*/}*.js',
+          '<%= skeleton.dist %>/styles/{,*/}*.css',
+          '<%= skeleton.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
+          '<%= skeleton.dist %>/styles/fonts/*'
         ]
       }
     },
@@ -270,9 +270,9 @@ module.exports = function (grunt) {
     // concat, minify and revision files. Creates configurations in memory so
     // additional tasks can operate on them
     useminPrepare: {
-      html: '<%= yeoman.app %>/index.html',
+      html: '<%= skeleton.app %>/index.html',
       options: {
-        dest: '<%= yeoman.dist %>',
+        dest: '<%= skeleton.dist %>',
         flow: {
           html: {
             steps: {
@@ -287,14 +287,14 @@ module.exports = function (grunt) {
 
     // Performs rewrites based on filerev and the useminPrepare configuration
     usemin: {
-      html: ['<%= yeoman.dist %>/{,*/}*.html'],
-      css: ['<%= yeoman.dist %>/styles/{,*/}*.css'],
-      js: ['<%= yeoman.dist %>/{,*/}*.js'],
+      html: ['<%= skeleton.dist %>/{,*/}*.html'],
+      css: ['<%= skeleton.dist %>/styles/{,*/}*.css'],
+      js: ['<%= skeleton.dist %>/{,*/}*.js'],
       options: {
         assetsDirs: [
-          '<%= yeoman.dist %>',
-          '<%= yeoman.dist %>/images',
-          '<%= yeoman.dist %>/styles'
+          '<%= skeleton.dist %>',
+          '<%= skeleton.dist %>/images',
+          '<%= skeleton.dist %>/styles'
         ],
         patterns: {
           js: [[/(images\/[^''""]*\.(png|jpg|jpeg|gif|webp|svg))/g, 'Replacing references to images']]
@@ -309,7 +309,7 @@ module.exports = function (grunt) {
     // cssmin: {
     //   dist: {
     //     files: {
-    //       '<%= yeoman.dist %>/styles/main.css': [
+    //       '<%= skeleton.dist %>/styles/main.css': [
     //         '.tmp/styles/{,*/}*.css'
     //       ]
     //     }
@@ -318,8 +318,8 @@ module.exports = function (grunt) {
     // uglify: {
     //   dist: {
     //     files: {
-    //       '<%= yeoman.dist %>/scripts/scripts.js': [
-    //         '<%= yeoman.dist %>/scripts/scripts.js'
+    //       '<%= skeleton.dist %>/scripts/scripts.js': [
+    //         '<%= skeleton.dist %>/scripts/scripts.js'
     //       ]
     //     }
     //   }
@@ -332,9 +332,9 @@ module.exports = function (grunt) {
       dist: {
         files: [{
           expand: true,
-          cwd: '<%= yeoman.app %>/images',
+          cwd: '<%= skeleton.app %>/images',
           src: '{,*/}*.{png,jpg,jpeg,gif}',
-          dest: '<%= yeoman.dist %>/images'
+          dest: '<%= skeleton.dist %>/images'
         }]
       }
     },
@@ -343,9 +343,9 @@ module.exports = function (grunt) {
       dist: {
         files: [{
           expand: true,
-          cwd: '<%= yeoman.app %>/images',
+          cwd: '<%= skeleton.app %>/images',
           src: '{,*/}*.svg',
-          dest: '<%= yeoman.dist %>/images'
+          dest: '<%= skeleton.dist %>/images'
         }]
       }
     },
@@ -360,9 +360,9 @@ module.exports = function (grunt) {
         },
         files: [{
           expand: true,
-          cwd: '<%= yeoman.dist %>',
+          cwd: '<%= skeleton.dist %>',
           src: ['*.html'],
-          dest: '<%= yeoman.dist %>'
+          dest: '<%= skeleton.dist %>'
         }]
       }
     },
@@ -374,7 +374,7 @@ module.exports = function (grunt) {
           htmlmin: '<%= htmlmin.dist.options %>',
           usemin: 'scripts/scripts.js'
         },
-        cwd: '<%= yeoman.app %>',
+        cwd: '<%= skeleton.app %>',
         src: 'partials/{,*/}*.html',
         dest: '.tmp/templateCache.js'
       }
@@ -396,7 +396,7 @@ module.exports = function (grunt) {
     // Replace Google CDN references
     cdnify: {
       dist: {
-        html: ['<%= yeoman.dist %>/*.html']
+        html: ['<%= skeleton.dist %>/*.html']
       }
     },
 
@@ -406,8 +406,8 @@ module.exports = function (grunt) {
         files: [{
           expand: true,
           dot: true,
-          cwd: '<%= yeoman.app %>',
-          dest: '<%= yeoman.dist %>',
+          cwd: '<%= skeleton.app %>',
+          dest: '<%= skeleton.dist %>',
           src: [
             '*.{ico,png,txt}',
             '*.html',
@@ -417,23 +417,23 @@ module.exports = function (grunt) {
         }, {
           expand: true,
           cwd: '.tmp/images',
-          dest: '<%= yeoman.dist %>/images',
+          dest: '<%= skeleton.dist %>/images',
           src: ['generated/*']
         }, {
           expand: true,
           cwd: '.',
           src: 'bower_components/bootstrap-sass-official/assets/fonts/bootstrap/*',
-          dest: '<%= yeoman.dist %>'
+          dest: '<%= skeleton.dist %>'
         }, {
           expand: true,
           cwd: 'bower_components/font-awesome/',
           src: 'fonts/*',
-          dest: '<%= yeoman.dist %>'
+          dest: '<%= skeleton.dist %>'
         }]
       },
       styles: {
         expand: true,
-        cwd: '<%= yeoman.app %>/styles',
+        cwd: '<%= skeleton.app %>/styles',
         dest: '.tmp/styles/',
         src: '{,*/}*.css'
       }
@@ -476,12 +476,12 @@ module.exports = function (grunt) {
           endtag: '<!-- endinjector -->'
         },
         files: {
-          '<%= yeoman.app %>/index.html': [
+          '<%= skeleton.app %>/index.html': [
                [
-                 '{.tmp,<%= yeoman.app %>}/core/{,*/}*.js',
-                 '{.tmp,<%= yeoman.app %>}/services/{,*/}*.js',
-                 '{.tmp,<%= yeoman.app %>}/directives/{,*/}*.js',
-                 '{.tmp,<%= yeoman.app %>}/partials/{,*/}*.js'
+                 '{.tmp,<%= skeleton.app %>}/core/{,*/}*.js',
+                 '{.tmp,<%= skeleton.app %>}/services/{,*/}*.js',
+                 '{.tmp,<%= skeleton.app %>}/directives/{,*/}*.js',
+                 '{.tmp,<%= skeleton.app %>}/partials/{,*/}*.js'
                ]
             ]
         }
