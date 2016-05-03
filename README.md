@@ -1,4 +1,4 @@
-# ng-skeleton (Angular app) 
+# boostrap-ng-skeleton (Angular app) 
 
 This project is an application skeleton for an AngularJS web app.  
 
@@ -13,7 +13,7 @@ Features:
 
 ## Install
 
-Clone this repo `git clone https://github.com/tretapey/ng-skeleton`  
+Clone this repo `git clone https://github.com/tretapey/bootstrap-ng-skeleton`  
 `cd ng-skeleton`  
 `bower install`   
 `npm install`
