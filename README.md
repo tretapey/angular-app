@@ -13,10 +13,10 @@ Features:
 
 ## Install
 
-Clone this repo `git clone https://github.com/tretapey/bootstrap-ng-skeleton`  
-`cd ng-skeleton`  
-`bower install`   
+Download this repo as a zip file.
+Unzip where you like in your machine. Then do:
 `npm install`
+`bower install`   
 
 ## Build & development
 
