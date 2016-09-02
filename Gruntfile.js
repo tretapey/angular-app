@@ -297,7 +297,8 @@ module.exports = function (grunt) {
           '<%= skeleton.dist %>/styles'
         ],
         patterns: {
-          js: [[/(images\/[^''""]*\.(png|jpg|jpeg|gif|webp|svg))/g, 'Replacing references to images']]
+          js: [[/(images\/.*?\.(png|jpg|jpeg|gif|webp|svg))/g, 'Replacing references to images']],
+          css: [[/(images\/.*?\.(png|jpg|jpeg|gif|webp|svg))/g, 'Replacing references to images']]
         }
       }
     },
